@@ -19,10 +19,10 @@ class CircularList : public Drawable
       int loc_pos;
       int sze;
       DoubleNode<T>* find(int index);
-      void animateMovement(bool clockwise, DoubleNode<T>* where);
+      void animateMovement(bool clockwise, DoubleNode<T>* where);//Do not need
 
-      bool update_active;
-      Update* gui;
+      bool update_active;// Do not need
+      Update* gui;//Do not need
 
    public:
       CircularList();
@@ -37,9 +37,9 @@ class CircularList : public Drawable
       void set(int index, T* item);
       CircularListIterator<T>* iterator();
 
-      void addListener(Update* gui);
-      void draw(Cairo::RefPtr<Cairo::Context> cr, int width, int height);
-      void mouseClicked(int x, int y);
+      void addListener(Update* gui);//Do not need
+      void draw(Cairo::RefPtr<Cairo::Context> cr, int width, int height);//Do not need
+      void mouseClicked(int x, int y);//Do not need
 
 };
 
@@ -60,22 +60,41 @@ DoubleNode<T>* CircularList<T>::find(int index)
    //complete the distance calculations below
    //loc_pos is the index that loc currently points to
    //index is the requested index
- 
+	int tempSize = size();
+	int greatIN;
+	int greatINbridge;
+	int lessIN;
+	int lessINbridge;
    if (index >= loc_pos)
    {
-                                    //distance without the bridge (next refs, positive)
-                                    //distance using the bridge (prev refs, negative)
+		greatIN = index - loc_pos;//distance without the bridge (next refs, positive)
+        greatINbridge = -1 * (loc_pos - index);//distance using the bridge (prev refs, negative)
+		if (greatIN <= greatINbridge)
+		{
+			min_dist = greatIN;
+		}
+		else
+		{
+			min_dist = greatINbridge * -1;
+		}
    }
    else
    {
-                                    //distance without the bridge (prev refs, negative)
-                                    //distance using the bridge (next refs, positive)
+        lessIN = loc_pos - index;//distance without the bridge (prev refs, negative)
+        lessINbridge = -1 * (index - loc_pos);//distance using the bridge (next refs, positive)
+		if (lessIN <= lessINbridge)
+		{
+			min_dist = lessIN;
+		}
+		else
+		{
+			min_dist = lessINbridge * -1;
+		}
    }
 
    //DO THIS which distance is smaller?
    //find the minimum distance using absolute value
    //set min_dist to the smaller value, keeping the sign
-
 
 
 
@@ -137,12 +156,16 @@ void CircularList<T>::remove(int index)
    //DO THIS
    //remember to move loc and loc_pos to the location of the removal
    //remember to delete the node after it has been removed from the list
+   DoubleNode<T>* tempLoc = loc;
    if (index >= 1 && index <= sze) 
    {
 
       if (sze == 1) //special case
       {
-
+		  
+      //int loc_pos;
+      //int sze;
+     // DoubleNode<T>* find(int index);
 
 
 
