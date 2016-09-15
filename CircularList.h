@@ -162,7 +162,7 @@ void CircularList<T>::remove(int index)
 
       if (sze == 1) //special case
       {
-
+            
 
 
 
