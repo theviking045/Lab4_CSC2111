@@ -39,7 +39,7 @@ int main()
 
    CircularList<CD>* circ_list = new CircularList<CD>();
    addCDs(cds, circ_list);
-   //cl->remove(5);
+   //circ_list->remove(5);
 
 cout << circ_list->size() << endl;
    CircularListIterator<CD>* iter = circ_list->iterator();
