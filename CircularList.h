@@ -56,7 +56,7 @@ DoubleNode<T>* CircularList<T>::find(int index)
       return NULL;
    }
 
-      //DO THIS
+      //DO THIS thing
    //complete the distance calculations below
    //loc_pos is the index that loc currently points to
    //index is the requested index
