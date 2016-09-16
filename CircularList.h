@@ -166,34 +166,35 @@ void CircularList<T>::remove(int index)
       }
       else
       {
-		  DoubleNode* tempLoc;
-		  DoubleNode* tempPrev;
-		  DoubleNode* tempNext;
-		  DoubelNode* newNextorPrev;
+		  DoubleNode<T>* tempLoc;
+		  DoubleNode<T>* tempPrev;
+		  DoubleNode<T>* tempNext;
+		  DoubleNode<T>* newNextorPrev;
          //use local variables
-		tempLoc = loc->find(index);
-		tempPrev = tempLoc->getPrev();
-		tempNext = tempLoc->getNext();
+		tempLoc = CircularList<T>::find(index);
+		tempPrev = tempLoc->DoubleNode<T>::getPrev();
+		tempNext = tempLoc->DoubleNode<T>::getNext();
 		newNextorPrev = tempNext;
 		if (newNextorPrev != NULL)
-			tempPrev->next = newNextorPrev;
+			tempPrev->setNext(newNextorPrev);
 		newNextorPrev = tempPrev;
 		if (newNextorPrev != NULL)
-			tempNext->prev = newNextorPrev;
+			tempNext->setPrev(newNextorPrev);
 		if (index != 1)
 		{
 			loc_pos = index - 1;
-			loc = find(loc_pos);
+			loc = CircularList<T>::find(loc_pos);
 		} 
 		else
 		{
 			loc_pos = index;
-			loc = find(loc_pos);
+			loc = CircularList<T>::find(loc_pos);
 		}
 		delete tempLoc;
       }
       sze--;
-   } 
+   }      
+      
 }
 
 template < class T >

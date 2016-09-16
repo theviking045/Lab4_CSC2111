@@ -1,5 +1,5 @@
-#if !defined TEXT_H
-#define TEXT_H
+#if !defined STRING_H
+#define STRING_H
 
 namespace CSC2110
 {

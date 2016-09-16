@@ -2,26 +2,25 @@
 #define READ_FILE_H
 
 #include "Text.h"
+using CSC2110::String;
 
 #include <fstream>
-using namespace std;
 
 namespace CSC2110
 {
-class ReadFile
-{
-   private:
-      ifstream* input_file;
-      bool _eof;
-      bool closed;
+	class ReadFile
+	{
+	   private:
+		  std::ifstream* input_file;
+		  bool _eof;
+		  bool closed;
 
-   public:
-      ReadFile(const char* file_name);
-      ~ReadFile();
-      CSC2110::String* readLine();
-      bool eof();
-      void close();
-};
+	   public:
+		  ReadFile(const char* file_name);
+		  ~ReadFile();
+		  String* readLine();
+		  bool eof();
+		  void close();
+	};
 }
-
 #endif

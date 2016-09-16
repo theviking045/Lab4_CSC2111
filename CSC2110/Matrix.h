@@ -16,6 +16,7 @@ class Matrix
       Matrix(int rows, int cols);  //constructor
       ~Matrix();                   //destructor
       void displayMatrix();
+
       int getNumRows();
       int getNumCols();
 

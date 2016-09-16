@@ -9,18 +9,17 @@ using namespace std;
 
 namespace CSC2110
 {
-class WriteFile
-{
-   private:
-      ofstream* output_file;
-      bool closed;
+	class WriteFile
+	{
+	   private:
+		  ofstream* output_file;
+		  bool closed;
 
-   public:
-      WriteFile(const char* file_name);
-      ~WriteFile();
-      void writeLine(String* line);
-      void close();
-};
+	   public:
+		  WriteFile(const char* file_name);
+		  ~WriteFile();
+		  void writeLine(CSC2110::String* line);
+		  void close();
+	};
 }
-
 #endif
